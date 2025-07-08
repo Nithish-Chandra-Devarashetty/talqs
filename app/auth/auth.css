@@ -1,0 +1,262 @@
+/* Auth page specific styles */
+.auth-container {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+/* Typography enhancements */
+.brand-title {
+  font-family: 'DM Serif Display', 'Playfair Display', serif;
+  letter-spacing: 0.05em;
+  background: linear-gradient(to right, #ffffff, #e2e8f0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+@media (min-width: 1024px) {
+  .auth-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.auth-illustration {
+  display: none;
+  background: linear-gradient(135deg, hsl(222 89% 55%), hsl(262 83% 58%));
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .auth-illustration {
+    display: block;
+  }
+}
+
+.auth-illustration::before {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+  top: -25%;
+  left: -25%;
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Form styles */
+.form-input {
+  width: 100%;
+  padding: 0.75rem 2.5rem;
+  border-radius: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  font-size: 0.875rem;
+  color: #1e293b;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Input animations */
+.form-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3);
+  border-color: rgba(79, 70, 229, 0.8);
+  animation: glow-pulse 1.5s infinite alternate;
+}
+
+@keyframes glow-pulse {
+  0% {
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.3);
+  }
+}
+
+/* Tab styling and animations */
+.auth-tab {
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.auth-tab.active {
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.auth-tab.active:after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 25%;
+  width: 50%;
+  height: 2px;
+  background: linear-gradient(to right, rgba(99, 179, 237, 0.5), rgba(99, 179, 237, 1), rgba(99, 179, 237, 0.5));
+}
+
+/* Button animations */
+.btn-premium {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: linear-gradient(to right, #4f46e5, #6366f1);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.btn-premium:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 10px -1px rgba(0, 0, 0, 0.1), 0 4px 6px -1px rgba(0, 0, 0, 0.06);
+  background: linear-gradient(to right, #4338ca, #4f46e5);
+}
+
+.btn-premium:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.btn-premium .arrow {
+  transition: transform 0.2s ease;
+}
+
+.btn-premium:hover .arrow {
+  transform: translateX(4px);
+}
+
+.dark .form-input {
+  background-color: hsl(224 71% 4%);
+  border-color: hsl(217.2 32.6% 17.5%);
+}
+
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: hsl(220 8% 46%);
+  margin-bottom: 0.375rem;
+}
+
+.dark .form-label {
+  color: hsl(215 20.2% 65.1%);
+}
+
+/* Premium button styles */
+.btn-premium {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: hsl(222 89% 55%);
+  color: hsl(210 40% 98%);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+}
+
+.btn-premium::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: all 0.6s ease;
+}
+
+.btn-premium:hover::before {
+  left: 100%;
+}
+
+.btn-premium:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(47, 112, 255, 0.3);
+}
+
+.glow-primary {
+  box-shadow: 0 0 20px rgba(47, 112, 255, 0.2);
+}
+
+.dark .glow-primary {
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.25);
+}
+
+/* Social login buttons */
+.social-login-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.625rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid hsl(220 13% 91%);
+  background-color: hsl(0 0% 100%);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.social-login-btn:hover {
+  background-color: hsl(220 14% 96%);
+}
+
+.dark .social-login-btn {
+  background-color: hsl(224 71% 4%);
+  border-color: hsl(217.2 32.6% 17.5%);
+}
+
+.dark .social-login-btn:hover {
+  background-color: hsl(217.2 32.6% 17.5%);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(90deg, hsl(222 89% 55%), hsl(262 83% 58%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.dark .gradient-text {
+  background: linear-gradient(90deg, hsl(210 100% 66%), hsl(262 83% 68%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Dark mode styles */
+.dark {
+  --background: 224 71% 2%;
+  --foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --border: 217.2 32.6% 17.5%;
+  --primary: 210 100% 66%;
+}
+
+/* Light mode styles */
+:root {
+  --background: 220 33% 99%;
+  --foreground: 224 71% 4%;
+  --muted: 220 14% 96%;
+  --muted-foreground: 220 8% 46%;
+  --border: 220 13% 91%;
+  --primary: 222 89% 55%;
+}
